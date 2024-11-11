@@ -209,12 +209,12 @@ function displayHands() {
     let randomLeft = Math.floor(Math.random() * 131) - 30; // random left position -30% to +100%
     let randomAngle = Math.floor(Math.random() * 91) - 45; // random deg -45 to +45
     // const randomOpacity = Math.random() * 0.5 + 0.5; // random opacity 0.5 to 1
-    const handDelay = i * 0.3; // each hand appear in order
+    const handDelay = i * 0.4; // each hand appear in order
 
     handElement.style.top = `${randomTop}%`;
     handElement.style.left = `${randomLeft}%`;
     handElement.style.transform = `rotate(${randomAngle}deg) scale(${randomSize}%) scaleX(${randomFlip})`;  
-    handElement.style.animation = `handpress 4s ease forwards`;
+    handElement.style.animation = `handpress 3s ease forwards`;
     handElement.style.animationDelay = `${handDelay}s`;
     console.log("randomAngle", randomAngle);
 

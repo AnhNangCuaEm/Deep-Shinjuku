@@ -688,13 +688,13 @@ html, body {
 @keyframes handpress {
   0% {
     opacity: 0;
-    filter: blur(8px);
+    filter: blur(10px);
     scale: 0.95;
   }
-  75% {
+  80% {
     opacity: 0.8;
     filter: blur(4px);
-    scale: 1.02;
+    scale: 1.01;
   }
   100% {
     opacity: 1;
