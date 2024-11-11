@@ -684,3 +684,21 @@ html, body {
         transform: translateX(-100vw);
     }
 }
+
+@keyframes handpress {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    scale: 0.95;
+  }
+  75% {
+    opacity: 0.8;
+    filter: blur(4px);
+    scale: 1.02;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    scale: 1;
+  }
+}
