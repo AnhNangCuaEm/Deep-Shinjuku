@@ -53,6 +53,7 @@ if ($storyId !== null) {
                 <img src="image/<?php echo $story->id; ?>.jpg" alt="<?php echo $story->title; ?>">
             </div>
         </div>
+        <div id="handsContainer" class="hands-container" data-story-id="<?php echo $story->id; ?>"></div>
     </div>
     <article class="story-article">
         <div class="story-article-title"><?php echo $story->title; ?></div>
@@ -79,8 +80,8 @@ if ($storyId !== null) {
     <div class="user-comment-wrap">
         <form action="story.php?id=<?php echo $story->id; ?>" method="POST">
             <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-        <button type="submit">コメントを投稿</button>
-    </form>
+            <button type="submit">コメントを投稿</button>
+        </form>
 
         <!-- TODO:コメントを表示する(foreach) -->
         <div class="user-comment">

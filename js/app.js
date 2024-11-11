@@ -178,6 +178,59 @@ window.addEventListener("scroll", () => {
 
 // ↑↑↑↑↑↑↑↑↑ page scroll animation ↑↑↑↑↑↑↑↑↑
 
+// TODO: Display Hands
+// 讀取 Local Storage 中已造訪的故事陣列
+// 取得故事 ID
+// 根據完成度顯示手的圖案
+// 讀取 Local Storage 中的訪問紀錄
+function displayHands() {
+  let storyId = document.getElementById("handsContainer").dataset.storyId;
+  let visitedStories = JSON.parse(localStorage.getItem("visitedStories")) || [];
+  // 檢查故事是否已造訪過，若未造訪則記錄
+  if (!visitedStories.includes(storyId)) {
+    visitedStories.push(storyId);
+    localStorage.setItem("visitedStories", JSON.stringify(visitedStories));
+  }
+
+  const handsContainer = document.getElementById("handsContainer");
+
+  handsContainer.innerHTML = ""; // 清空現有內容
+  const completedCount = visitedStories.length;
+
+  // 生成對應數量的手圖案
+  for (let i = 0; i < completedCount; i++) {
+    const handElement = document.createElement("div");
+    handElement.className = "hand";
+
+    // ランダム位置、回転角度、サイズ
+    const randomSize = Math.random() * 51 + 50; // random size 50% to 100%
+    const randomTop = Math.random() * 130 - 30; // random top position -30% to +100%
+    const randomLeft = Math.random() * 130 - 30; // random left position -30% to +100%
+    const randomAngle =
+      Math.random() > 0.5
+        ? Math.random() * 120 - 60
+        : -1 * (Math.random() * 120 - 60); // random deg -60 to +60
+    const randomFlip = Math.floor(Math.random() > 0.5 ? 1 : -1); // random flip
+    const randomOpacity = Math.random() * 0.5 + 0.5; // random opacity 0.5 to 1
+    const handDelay = i * 0.3; // each hand appear in order
+
+    handElement.style.top = `${randomTop}%`;
+    handElement.style.left = `${randomLeft}%`;
+    handElement.style.scale = `${randomSize}%`;
+    handElement.style.transform = `rotate(${randomAngle}deg) scaleX(${randomFlip})`;
+    handElement.style.animation = `fade-in 5s ease forwards`;
+    handElement.style.animationDelay = `${handDelay}s`;
+    handElement.style.filter = `opacity(${randomOpacity})`;
+
+    handsContainer.appendChild(handElement);
+  }
+}
+
+// 初始化顯示手的圖案
+if (document.querySelector(".hands-container")) {
+  displayHands();
+}
+
 if (document.querySelector(".stories-wrap")) {
   window.onload = function () {
     // centerView();
