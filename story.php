@@ -99,12 +99,8 @@ $prevStory = $storyData->getById($story->id - 1 > 0 ? $story->id - 1 : $maxId);
                 </div>
                 <button type="button" id="seeAllCommentBtn" class="see-all-comment-btn">全てのコメントを見る（TODO:こちらに全部のコメントの数を表示）</button>
             </div>
-            <div class="story-photo-map-wrap">
-                <div class="story-detail-title">写真と地図</div>
-                <div class="story-photo">
-                    <div class="story-photo-l"></div>
-                    <div class="story-photo-s"></div>
-                </div>
+            <div class="story-map-wrap">
+                <div class="story-detail-title">地図</div>
                 <div class="story-map">
                     <div class="story-map-content">
                         <iframe
